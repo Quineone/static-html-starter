@@ -18,7 +18,7 @@ $ npm install -g gulp
 $ npm install
 
 # build for production
-$ gulp build
+$ gulp prod:build
 
 # serve with hot reload at localhost:3000
 $ gulp
