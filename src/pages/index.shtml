@@ -1,0 +1,16 @@
+<!doctype html>
+<html lang="en">
+@@include('../layouts/head.shtml', {"title": "Sitemap | Website"})
+
+<body id="app" class="flex flex-col min-h-screen">
+  @@include('../layouts/header.shtml')
+
+  <main class="flex-1">
+  	@@include('../views/sitemap.shtml')
+  </main>
+
+  @@include('../layouts/footer.shtml')
+  @@include('../layouts/scripts.shtml')
+</body>
+
+</html>

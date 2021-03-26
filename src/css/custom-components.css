@@ -1,0 +1,9 @@
+/*
+Container
+========
+*/
+
+.container {
+  @apply w-full mx-auto;
+}
+
