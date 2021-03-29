@@ -2,14 +2,12 @@
 <html lang="en">
 @@include('../layouts/head.shtml', {"title": "Sitemap | Website"})
 
-<body id="app" class="flex flex-col min-h-screen">
-  @@include('../layouts/header.shtml')
-
-  <main class="flex-1">
-  	@@include('../views/sitemap.shtml')
-  </main>
-
-  @@include('../layouts/footer.shtml')
+<body id="app" class="flex flex-col min-h-screen bg-white">
+  <div class="relative overflow-hidden">
+    @@include('../layouts/header.shtml')
+    @@include('../views/landing.shtml')
+    @@include('../layouts/footer.shtml')
+  </div>
   @@include('../layouts/scripts.shtml')
 </body>
 

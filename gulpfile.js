@@ -19,9 +19,7 @@ const gulp = require('gulp'),
   // image
   imagemin = require('gulp-imagemin'),
   // icon
-  svgstore = require('gulp-svgstore'),
-  svgmin = require('gulp-svgmin'),
-  path = require('path');
+  embedSvg = require('gulp-embed-svg');
 
 // error handler
 function swallowError(error) {
@@ -47,6 +45,10 @@ gulp.task('html', function() {
 		.pipe(fileinclude({
 	    prefix: '@@',
 	    basepath: '@file'
+    }))
+    .pipe(embedSvg({
+      root: './src/assets/icons',
+      selectors: '.inline-svg'
     }))
     .pipe(htmlbeautify({
       indent_size: 2,
@@ -109,7 +111,8 @@ gulp.task('dev:css', function () {
   const appCss = gulp.src(AppCssSrc)
     .pipe(postcss([
       atImport,
-      tailwindcss
+      tailwindcss,
+      autoprefixer
     ]).on('error', swallowError))
 		.pipe(rename({
 			suffix: '.min'
@@ -163,26 +166,12 @@ gulp.task('font', function() {
 //========================================================================================================//
 
 const IconSrc = 'src/assets/icons/*.svg',
-	IconDest = 'dist/assets/images/';
+	IconDest = 'dist/assets/icons/';
 
-gulp.task('icon', function () {
-  return gulp.src(IconSrc)
-    .pipe(svgmin(function (file) {
-    	const prefix = path.basename(file.relative, path.extname(file.relative));
-        return {
-          plugins: [{
-            cleanupIDs: {
-              prefix: prefix + '-',
-              minify: true
-            }
-          }]
-        }
-    }))
-    .pipe(rename({
-      prefix: 'icon-'
-    }))
-    .pipe(svgstore())
-    .pipe(gulp.dest(IconDest));
+gulp.task('icon', function() {
+	return gulp.src(IconSrc)
+		.pipe(newer(IconDest))
+		.pipe(gulp.dest(IconDest));
 });
 
 
