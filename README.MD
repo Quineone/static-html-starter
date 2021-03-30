@@ -3,6 +3,7 @@
 A static html starter base on gulp build. Using html5, tailwindcss and svg icon.
 
 **Note:**
+
 - Strongly recommend using [`nvm`](https://github.com/coreybutler/nvm-windows/) to switch the version of node, suitable for different projects.
 - Tailwind CSS requires Node.js 12.13.0 or higher.
 - To make sure working, please follow the version of node where `.nvmrc` list.
@@ -31,6 +32,7 @@ $ gulp
   @@include('<path>/icon.shtml', {'name': 'search'})
 </i>
 ```
+
 - Set icon color: `text-red-500`
 - Set icon size: `h-4 w-4`
 - Set icon name: `{'name': 'search'}`
@@ -45,12 +47,11 @@ There are some useful tips for development, had better follow these guides.
 1. Defer offscreen images.
 
 - [Lazy load offscreen images with lazysizes codelab](https://web.dev/codelab-use-lazysizes-to-lazyload-images/).
-- Using <img> `loading` attribute
+- Using <img> `loading` attribute.
 
 ```html
 <img src="..." alt="xx" title="xxx" loading="lazy" />
 ```
-----------
 
 2. Efficiently encode images. There are many steps you can take to optimize your images, including:
 
@@ -61,18 +62,16 @@ There are some useful tips for development, had better follow these guides.
 - [Serving responsive images](https://web.dev/serve-responsive-images/)
 - [Serving images with correct dimensions](https://web.dev/serve-images-with-correct-dimensions/)
 - [Using WebP images](https://web.dev/serve-images-webp/)
-----------
 
-3. Ensure text remains visible during webfont load.
+3. Ensure text remains visible during webfont load. By including `font-display: swap` in your `@font-face` style, you can avoid `FOIT` in most modern browsers:
 
 ```html
-<!-- By including `font-display: swap` in your `@font-face` style, you can avoid `FOIT` in most modern browsers: -->
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
 ```
+
 and
 
 ```css
-/* By including `font-display: swap` in your `@font-face` style, you can avoid `FOIT` in most modern browsers: */
 @font-face {
   font-family: 'Pacifico';
   font-style: normal;
@@ -81,9 +80,8 @@ and
   font-display: swap;
 }
 ```
-----------
 
-4. Preload key request
+4. Preload key request.
 
 ```html
 <head>
@@ -94,7 +92,6 @@ and
   ...
 </head>
 ```
-----------
 
 5. Image elements have explicit width and height.
 
@@ -109,7 +106,6 @@ and
   <img src="puppy-800w.jpg" alt="Puppy with balloons" />
 </picture>
 ```
-----------
 
 6. Optimize Cumulative Layout Shift. The most common causes of a poor CLS are:
 
@@ -119,13 +115,11 @@ and
 - Web Fonts causing FOIT/FOUT
 - Actions waiting for a network response before updating DOM
 
-*[Learn how to avoid sudden layout shifts to improve user-experience](https://web.dev/optimize-cls/?utm_source=lighthouse&utm_medium=devtools#images-without-dimensions)*
-----------
+[Learn how to avoid sudden layout shifts to improve user-experience](https://web.dev/optimize-cls/?utm_source=lighthouse&utm_medium=devtools#images-without-dimensions)
 
-7. Minify CSS and Remove unused CSS (using tailwindcss and purecss)
-----------
+7. Minify CSS and Remove unused CSS (using tailwindcss and purecss).
 
-8. Minify JavaScript and Remove unused JavaScript
+8. Minify JavaScript and Remove unused JavaScript.
 
 ### For best practices
 
@@ -136,7 +130,6 @@ and
 <html lang="en">
 …
 ```
-----------
 
 2. Heading elements appear in a sequentially-descending order.
 
@@ -148,7 +141,6 @@ and
     <h3>Sub-section Heading</h3>
 </section>
 ```
-----------
 
 3. Form elements have associated labels.
 
@@ -183,44 +175,47 @@ and
 ```html
 <title>20-week training schedule for your first marathon</title>
 ```
-Tips for creating great titles
+
+Tips for creating great titles:
+
 - Use a unique title for each page.
 - Make titles descriptive and concise. Avoid vague titles like "Home".
 - Avoid [keyword stuffing](https://support.google.com/webmasters/answer/66358). It doesn't help users, and search engines may mark the page as spam.
 - It's OK to brand your titles, but do so concisely.
-----------
 
-2. Has a `<meta name="viewport">` tag with `width` or `initial-scale`
+2. Has a `<meta name="viewport">` tag with `width` or `initial-scale`.
 
 ```html
 <meta name="viewport" content="width=device-width, initial-scale=1">
 ```
-----------
 
-3. Document has a `meta` description
+3. Document has a `meta` description.
 
 ```html
 <meta name="description" content="Put your description here.">
 ```
-Meta description best practices
+
+Meta description best practices:
+
 - Use a unique description for each page.
 - Make descriptions clear and concise. Avoid vague descriptions like "Home"
 - Avoid [keyword stuffing](https://support.google.com/webmasters/answer/66358). It doesn't help users, and search engines may mark the page as spam.
 - Descriptions don't have to be complete sentences; they can contain structured data.
-----------
 
-4. Links have descriptive text
+4. Links have descriptive text.
 
 ```html
 <p>To see all of our basketball videos, <a href="videos.html">click here</a>.</p>
 ```
-Link text best practices
+
+Link text best practices:
+
 - Stay on topic. Don't use link text that has no relation to the page's content.
 - Don't use the page's URL as the link description unless you have a good reason to do so, such as referencing a site's new address.
 - Keep descriptions concise. Aim for a few words or a short phrase.
 - Pay attention to your internal links too. Improving the quality of internal links can help both users and search engines navigate your site more easily.
 
-**Note:** For `image` or `icon` only of link or button,  using `class="sr-only"` to achieve
+**Note:** For `image` or `icon` only of link or button,  using `class="sr-only"` to achieve.
 
 ```html
 <a href="#">
@@ -228,6 +223,7 @@ Link text best practices
   <img src="..." alt="xx">
 </a>
 ```
+
 or
 
 ```html
@@ -236,10 +232,8 @@ or
   @@include('<path>/icon.shtml', {'name': 'search'})
 </button>
 ```
-and so on...
-----------
 
-5. Image elements have [alt] attributes
+5. Image elements have `[alt]` attributes.
 
 ```html
 <!-- Most images should have short, descriptive text -->
@@ -248,13 +242,14 @@ and so on...
 <!-- For image acts as decoration and does not provide any useful content -->
 <img src="background.png" alt="">
 ```
-Tips for writing effective alt text
+
+Tips for writing effective alt text:
+
 - `alt` text should give the intent, purpose, and meaning of the image.
 - Blind users should get as much information from alt text as a sighted user gets from the image.
 - Avoid non-specific words like "chart", "image", or "diagram".
-----------
 
-6. Links are crawlable
+6. Links are crawlable.
 
 Please make sure `<a>` element always have the `href` attributes.
 
@@ -268,9 +263,8 @@ Please make sure `<a>` element always have the `href` attributes.
 <!-- For <a> tag button element -->
 <a href="javascript:;" role="button">Login</a>
 ```
-----------
 
-7. Document avoids plugins
+7. Document avoids plugins.
 
 ```html
 <!-- Avoid use <embed>, <object>, <applet > -->
@@ -288,21 +282,23 @@ Please make sure `<a>` element always have the `href` attributes.
   Java applet that draws animated bubbles.
 </applet>
 ```
-**Note:** A URL with a file format that is known to represent plugin content: `swf`, `flv`, `class`, `xap`.
-----------
 
-8. Page isn’t blocked from indexing
+**Note:** A URL with a file format that is known to represent plugin content: `swf`, `flv`, `class`, `xap`.
+
+8. Page isn’t blocked from indexing.
 
 - Remove the `X-Robots-Tag` HTTP response header if you set up a HTTP response header:
 
 ```json
 X-Robots-Tag: noindex
 ```
+
 - Remove the following meta tag if it's present in the head of the page:
 
 ```html
 <meta name="robots" content="noindex">
 ```
+
 - Remove meta tags that block specific crawlers if these tags are present in the head of the page. For example:
 
 ```html
