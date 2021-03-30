@@ -46,14 +46,16 @@ There are some useful tips for development, had better follow these guides.
 
 1. Defer offscreen images.
 
-- [Lazy load offscreen images with lazysizes codelab](https://web.dev/codelab-use-lazysizes-to-lazyload-images/).
-- Using <img> `loading` attribute.
+- Lazy load offscreen images with [lazysizes codelab](https://web.dev/codelab-use-lazysizes-to-lazyload-images/).
+- Using img tag `loading` attribute.
 
 ```html
 <img src="..." alt="xx" title="xxx" loading="lazy" />
 ```
 
-2. Efficiently encode images. There are many steps you can take to optimize your images, including:
+2. Efficiently encode images.
+
+There are many steps you can take to optimize your images, including:
 
 - [Using image CDNs](https://web.dev/image-cdns/)
 - [Compressing images](https://web.dev/use-imagemin-to-compress-images/)
@@ -63,7 +65,9 @@ There are some useful tips for development, had better follow these guides.
 - [Serving images with correct dimensions](https://web.dev/serve-images-with-correct-dimensions/)
 - [Using WebP images](https://web.dev/serve-images-webp/)
 
-3. Ensure text remains visible during webfont load. By including `font-display: swap` in your `@font-face` style, you can avoid `FOIT` in most modern browsers:
+3. Ensure text remains visible during webfont load.
+
+By including `font-display: swap` in your `@font-face` style, you can avoid `FOIT` in most modern browsers:
 
 ```html
 <link href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap" rel="stylesheet">
@@ -95,11 +99,12 @@ and
 
 5. Image elements have explicit width and height.
 
-- Always include width and height size attributes on your images and video elements.
+- Always include `width` and `height` size attributes on your images and video elements.
 - Alternatively, reserve the required space with [CSS aspect ratio boxes](https://css-tricks.com/aspect-ratio-boxes/).
 
+For Responsive images:
+
 ```html
-<!-- Responsive images -->
 <picture>
   <source media="(max-width: 799px)" srcset="puppy-480w-cropped.jpg" />
   <source media="(min-width: 800px)" srcset="puppy-800w.jpg" />
@@ -107,7 +112,9 @@ and
 </picture>
 ```
 
-6. Optimize Cumulative Layout Shift. The most common causes of a poor CLS are:
+6. Optimize Cumulative Layout Shift.
+
+The most common causes of a poor CLS are:
 
 - Images without dimensions
 - Ads, embeds, and iframes without dimensions
