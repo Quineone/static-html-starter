@@ -1,0 +1,2 @@
+<!-- gulp-svg-inject will replace the tags with the content of the svg files -->
+<img src="./src/assets/icons/@@name.svg" class="fill-current w-full h-full" />

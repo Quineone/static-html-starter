@@ -19,7 +19,7 @@ const gulp = require('gulp'),
   // image
   imagemin = require('gulp-imagemin'),
   // icon
-  embedSvg = require('gulp-embed-svg');
+  svgInject = require('gulp-svg-inject');
 
 // error handler
 function swallowError(error) {
@@ -32,6 +32,7 @@ function tailwindExtractor(content) {
   // https://tailwindcss.com/docs/optimizing-for-production#writing-purgeable-html
   return content.match(/[^<>"'`\s]*[^<>"'`\s:]/g);
 }
+
 
 //========================================================================================================//
 //                                            Html task
@@ -46,10 +47,7 @@ gulp.task('html', function() {
 	    prefix: '@@',
 	    basepath: '@file'
     }))
-    .pipe(embedSvg({
-      root: './src/assets/icons',
-      selectors: '.inline-svg'
-    }))
+    .pipe(svgInject())
     .pipe(htmlbeautify({
       indent_size: 2,
       max_preserve_newlines: 0
