@@ -37,7 +37,6 @@ $ gulp
 - Set icon size: `h-4 w-4`
 - Set icon name: `{'name': 'search'}`
 
-
 ## Tips for development
 
 There are some useful tips for development, had better follow these guides.
@@ -124,7 +123,7 @@ The most common causes of a poor CLS are:
 
 [Learn how to avoid sudden layout shifts to improve user-experience](https://web.dev/optimize-cls/?utm_source=lighthouse&utm_medium=devtools#images-without-dimensions)
 
-7. Minify CSS and Remove unused CSS (using tailwindcss and purecss).
+7. Minify CSS and Remove unused CSS (using tailwindcss and purgecss).
 
 8. Minify JavaScript and Remove unused JavaScript.
 
